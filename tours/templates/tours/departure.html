@@ -2,29 +2,32 @@
 
 {% block content %}
 <h1 class="display-5 mt-4">Летим из <span data-test="from">{{ departure }}</span></h1>
-    <p class="mb-4" >Найдено <span data-test="tourcount">{{ count }}</span> {% if count < 5 %} тура{% else %} туров{% endif %}, от <span data-test="pricemin">{{ min_price }}
-    </span> до <span data-test="pricemax">{{ max_price }}</span> и от <span data-test="nightsmax">{{ min_nights }}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span> ночей</p>
-    <!-- HERO -->
+<p class="mb-4">Найдено <span data-test="tourcount">{{ count }}</span> {% if count < 5 %} тура{% else %} туров{% endif
+    %}, от <span data-test="pricemin">{{ min_price }}
+    </span> до <span data-test="pricemax">{{ max_price }}</span> и от <span
+            data-test="nightsmax">{{ min_nights }}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span>
+    ночей</p>
+<!-- HERO -->
 
 
+<!-- CARDS -->
 
-    <!-- CARDS -->
-
-    <div class="row mt-5" data-test="cards">
+<div class="row mt-5" data-test="cards">
 
     {% for id, tour in chosen_tours %}
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
+    <div class="col-4" data-test="card">
+        <div class="card mb-3">
             <img src={{ tour.picture }} class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
-              <h5 class="card-title"> {{ tour.title }}</h5>
-             <p class="card-text">{{ tour.description }}</p>
-                <a href="{{ "/tour/"|add:id|add:"/" }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                <h5 class="card-title"> {{ tour.title }}</h5>
+                <p class="card-text">{{ tour.description }}</p>
+                <a href="{{ "/tour/"|add:id|add:"/" }}" class="btn btn-sm btn-primary"
+                data-test="tourlink">Подробнее</a>
             </div>
         </div>
-        </div>
+    </div>
     {% endfor %}
 
-    </div>
+</div>
 
 {% endblock %}

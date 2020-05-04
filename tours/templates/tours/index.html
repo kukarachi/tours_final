@@ -1,28 +1,28 @@
-
 {% extends 'tours/base.html' %}
 
 {% block content %}
-    <div class="jumbotron text-center mt-4">
-      <h1 class="display-4">Всякие туры</h1>
-      <p class="lead">{{ subtitle }}</p>
-      <p class="mt-5 w-50 mx-auto">{{ description }}</p>
-    </div>
+<div class="jumbotron text-center mt-4">
+    <h1 class="display-4">Всякие туры</h1>
+    <p class="lead">{{ subtitle }}</p>
+    <p class="mt-5 w-50 mx-auto">{{ description }}</p>
+</div>
 
-    <!-- CARDS -->
+<!-- CARDS -->
 
-    <div class="row mt-5" data-test="cards">
-        {% for tour in tours %}
-        <div class="col-4" data-test="card">
-            <div class="card mb-3" >
+<div class="row mt-5" data-test="cards">
+    {% for tour in tours %}
+    <div class="col-4" data-test="card">
+        <div class="card mb-3">
             <img src={{ tour.picture }} class="card-img-top img-fluid" data-test="picture">
             <div class="card-body">
-              <h5 class="card-title">{{ tour.title }}</h5>
-             <p class="card-text">{{ tour.description }}</p>
-                <a href="{{ "/tour/"|add:tour.id|add:"/" }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                <h5 class="card-title">{{ tour.title }}</h5>
+                <p class="card-text">{{ tour.description }}</p>
+                <a href="{{ "/tour/"|add:tour.id|add:"/" }}" class="btn btn-sm btn-primary"
+                data-test="tourlink">Подробнее</a>
             </div>
         </div>
-        </div>
-        {% endfor %}
-
     </div>
+    {% endfor %}
+
+</div>
 {% endblock %}
